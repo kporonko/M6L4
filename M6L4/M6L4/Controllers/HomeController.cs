@@ -38,12 +38,21 @@ namespace M6L4.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Update(int? id)
+        {
+            if (id != null)
+            {
+                Book? book = _bookService.GetBooks().FirstOrDefault(p => p.Id == id);
+                if (book != null) return Content(book.Title);
+            }
+            return NotFound();
+        }
+
         [HttpPost, ActionName("Update")]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(int id)
+        public IActionResult Update(Book book)
         {
-            string desc = "";
-            _bookService.UpdateBook(id, desc);
+            _bookService.UpdateBook(book.Id, book.Description);
             return RedirectToAction("Index");
         }
 
