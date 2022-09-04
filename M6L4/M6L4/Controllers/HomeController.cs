@@ -40,8 +40,9 @@ namespace M6L4.Controllers
 
         [HttpPost, ActionName("Update")]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(int id, string desc)
+        public IActionResult Update(int id)
         {
+            string desc = "";
             _bookService.UpdateBook(id, desc);
             return RedirectToAction("Index");
         }
