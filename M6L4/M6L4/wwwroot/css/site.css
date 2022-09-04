@@ -41,3 +41,7 @@ body {
 .text-center{
     text-align: center;
 }
+.text-center-full{
+    width: 80%;
+}
+

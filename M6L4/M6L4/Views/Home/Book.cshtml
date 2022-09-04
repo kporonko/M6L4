@@ -6,7 +6,7 @@
 @model Book;
 
 
-<div class="text-center">
+<div class="text-center-full">
 
     <div>
         <img class="image-small" src=@Model.Image />
@@ -14,7 +14,9 @@
         <h5>@Model.AuthorFullName</h5>
         <h5>@Model.BooksSold</h5>
         <h5>@Model.ReleaseDate</h5>
-        <h5 class="desc">@Model.Description</h5>
+        <div>
+             <textarea rows=5 cols=30 >@Model.Description</textarea>
+        </div>
         <h5 class="green">@Model.Price$</h5>
         <button onclick="location.href = '@Url.Action("BookDelete", "Home", new {id = @Model.Id})'">Delete</button>
     </div>
