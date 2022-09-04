@@ -29,10 +29,20 @@ namespace M6L4.Controllers
             return View(books);
         }
 
-        [HttpDelete]
-        public IActionResult BookDelete(int id)
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
         {
             _bookService.DeleteBook(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost, ActionName("Update")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(int id, string desc)
+        {
+            _bookService.UpdateBook(id, desc);
             return RedirectToAction("Index");
         }
 
