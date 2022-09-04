@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Book;
+
+
+<div class="text-center">
+
+    <div>
+        <img class="image-small" src=@Model.Image />
+        <h5 class="title">@Model.Title</h5>
+        <h5>@Model.AuthorFullName</h5>
+        <h5>@Model.BooksSold</h5>
+        <h5>@Model.ReleaseDate</h5>
+        <h5 class="desc">@Model.Description</h5>
+        <h5 class="green">@Model.Price$</h5>
+        <button onclick="location.href = '@Url.Action("BookDelete", "Home", new {id = @Model.Id})'">Delete</button>
+    </div>
+</div>
