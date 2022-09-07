@@ -9,10 +9,10 @@ namespace M6L4.Core.Services
 {
     public interface IBookService
     {
-        Book GetBook(int id);
-        List<Book> GetBooks();
-        void DeleteBook(int Id);
-        void AddBook(Book book);
-        void UpdateBook(int id, string desc);
+        Book Get(int id);
+        List<Book> Get();
+        void Delete(int Id);
+        void Add(Book book);
+        void Update(int id, string desc);
     }
 }

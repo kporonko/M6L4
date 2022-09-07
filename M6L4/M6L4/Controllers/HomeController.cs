@@ -19,13 +19,13 @@ namespace M6L4.Controllers
         [Route("Home/Book/{id:int}")]
         public IActionResult Book([FromRoute] int id)
         {
-            Book book = _bookService.GetBook(id);
+            Book book = _bookService.Get(id);
             return View(book);
         }
 
         public IActionResult Index()
         {
-            var books = _bookService.GetBooks();
+            var books = _bookService.Get();
             return View(books);
         }
 
@@ -34,7 +34,7 @@ namespace M6L4.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            _bookService.DeleteBook(id);
+            _bookService.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -42,7 +42,7 @@ namespace M6L4.Controllers
         {
             if (id != null)
             {
-                Book? book = _bookService.GetBooks().FirstOrDefault(p => p.Id == id);
+                Book? book = _bookService.Get().FirstOrDefault(p => p.Id == id);
                 if (book != null) return Content(book.Title);
             }
             return NotFound();
@@ -52,7 +52,7 @@ namespace M6L4.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update(Book book)
         {
-            _bookService.UpdateBook(book.Id, book.Description);
+            _bookService.Update(book.Id, book.Description);
             return RedirectToAction("Index");
         }
 
@@ -65,7 +65,7 @@ namespace M6L4.Controllers
         public IActionResult AddItem(int Id ,string Title, DateTime ReleaseDate, string Image, string Description, string AuthorFullName, double Price, int BooksSold)
         {
             Book newBook = new Book { Id = Id, Title = Title, ReleaseDate = ReleaseDate, Image = Image, Description = Description, AuthorFullName = AuthorFullName, Price = Price, BooksSold = BooksSold };
-            _bookService.AddBook(newBook);
+            _bookService.Add(newBook);
             return Content("Successfully added");
         }
 
