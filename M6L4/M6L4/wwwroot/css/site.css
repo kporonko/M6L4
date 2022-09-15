@@ -1,0 +1,47 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.image-small{
+    max-width: 200px;
+    width: 200px;
+}
+.text-center {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.small-width{
+    max-width: 200px;
+    min-width: 200px;
+}
+.title{
+    overflow: clip;
+    text-overflow: ellipsis;
+}
+.green{
+    color: green;
+}
+.text-center{
+    text-align: center;
+}
+.text-center-full{
+    width: 80%;
+}
+
